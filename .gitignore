@@ -3,3 +3,9 @@ node_modules/
 .DS_Store
 .env
 .env.*
+
+# Styleguide (Next.js) build artifacts
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
