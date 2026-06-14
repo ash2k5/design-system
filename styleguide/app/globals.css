@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "../../dist/preset.css";
+@import "../../dist/recipes.css";
+
+/* Generate utilities used inside the component library source. */
+@source "../../src";
+
+body {
+  min-height: 100vh;
+}
