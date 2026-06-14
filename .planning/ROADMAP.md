@@ -15,7 +15,8 @@ Persistent state so any session can resume. Full plan:
 
 ## Phase status
 
-- [~] P0 — DS foundation (tokens, theming, fonts, recipes, styleguide). IN PROGRESS.
+- [x] P0 — DS foundation (tokens, theming, fonts, recipes, styleguide). DONE. Published
+      @ash2k5/cinematic-ds@0.1.0 to GitHub Packages (repo: github.com/ash2k5/design-system, private).
 - [ ] P1 — DS components (Radix + CVA, all states, both themes, styleguide).
 - [ ] P2 — CampusPathFinder rebuild (TS migration, DS adoption, dual theme; keep map/Firebase/routing).
 - [ ] P3 — Book ML (3a Flask->FastAPI API; 3b new Next.js FE).
@@ -25,6 +26,7 @@ Persistent state so any session can resume. Full plan:
 ## P0 progress (this session)
 
 Done:
+
 - Repo scaffold: package.json, .gitignore, tsconfig.json, dirs.
 - Canonical token source `tokens/tokens.mjs` (MD3 colors light/dark + semantic, glass/aurora/ambient,
   type scale via clamp, spacing, radius, motion).
@@ -34,15 +36,21 @@ Done:
 - VERIFIED: styleguide renders light + dark to spec via Playwright (Bodoni+Inter load, var swap,
   glass/aurora/grain, input error state). Only console noise = favicon 404.
 
-Remaining for P0 (needs user input):
-- Distribution model: publish to GitHub Packages (Changesets, `.npmrc` + PAT in CI) vs vendor `dist/`
-  into each app via a sync script. Determines how P2-P4 consume the package.
-- git init on main + first commit + create/push GitHub repo (NEEDS USER CONFIRMATION before push).
+Resolved (P0 closed):
+
+- Distribution = GitHub Packages. Changesets + `.github/workflows/release.yml` publish on push to
+  main via the repo's GITHUB_TOKEN (local gh token lacks write:packages, so CI does the publish).
+- Repo pushed (private) + published @ash2k5/cinematic-ds@0.1.0, tag v0.1.0.
 
 ## Notes / gotchas
 
-- Apps are separate deploy repos -> can't import across repos at deploy time. Either publish to
-  GitHub Packages or vendor `dist/` per app. Confirm with user before publishing.
+- Apps are separate deploy repos -> can't import across repos at deploy time. Resolved via GitHub
+  Packages publish (CI). CONSUMER SETUP for P2-P4: each app needs an `.npmrc`
+  (`@ash2k5:registry=https://npm.pkg.github.com` + `_authToken=${NODE_AUTH_TOKEN}`) and a PAT/secret
+  with `read:packages` in Vercel/Render env to install the package in CI.
+- Publishing needs `write:packages` (CI GITHUB_TOKEN has it). The local gh token only has
+  repo/workflow/gist/read:org, so direct `npm publish` from this machine will 403 until
+  `gh auth refresh -s write:packages,read:packages` is run in a real terminal.
 - Tailwind v4 `@theme inline` keeps utilities pointing at runtime vars so `[data-theme]` swaps work.
 - pnpm not installed; use npm. Node v24, npm 11. gh authed as ash2k5.
 - Source `~/.claude/devpath.sh` at the start of every Bash command.
