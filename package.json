@@ -1,0 +1,36 @@
+{
+  "name": "@ash2k5/cinematic-ds",
+  "version": "0.1.0",
+  "description": "Cinematic Editorial design system: tokens, theming, fonts, and React components.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "files": [
+    "dist",
+    "tokens",
+    "scripts"
+  ],
+  "exports": {
+    "./tokens.css": "./dist/tokens.css",
+    "./preset.css": "./dist/preset.css",
+    "./fonts.css": "./dist/fonts.css",
+    "./recipes.css": "./dist/recipes.css",
+    "./theme-toggle.js": "./dist/theme-toggle.js"
+  },
+  "scripts": {
+    "build": "node scripts/build-tokens.mjs",
+    "styleguide": "node scripts/serve.mjs",
+    "prepublishOnly": "npm run build",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ash2k5/design-system.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.0"
+  }
+}
