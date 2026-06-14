@@ -17,7 +17,8 @@ Persistent state so any session can resume. Full plan:
 
 - [x] P0 — DS foundation (tokens, theming, fonts, recipes, styleguide). DONE. Published
       @ash2k5/cinematic-ds@0.1.0 to GitHub Packages (repo: github.com/ash2k5/design-system, private).
-- [ ] P1 — DS components (Radix + CVA, all states, both themes, styleguide).
+- [x] P1 — DS components (Radix + CVA, all states, both themes, styleguide). DONE (changeset queued for
+      0.2.0; styleguide converted to a Next.js app). See "P1 progress" below.
 - [ ] P2 — CampusPathFinder rebuild (TS migration, DS adoption, dual theme; keep map/Firebase/routing).
 - [ ] P3 — Book ML (3a Flask->FastAPI API; 3b new Next.js FE).
 - [ ] P4 — Site Audit (4a clean API + redesigned PDF; 4b new Next.js FE).
@@ -41,6 +42,41 @@ Resolved (P0 closed):
 - Distribution = GitHub Packages. Changesets + `.github/workflows/release.yml` publish on push to
   main via the repo's GITHUB_TOKEN (local gh token lacks write:packages, so CI does the publish).
 - Repo pushed (private) + published @ash2k5/cinematic-ds@0.1.0, tag v0.1.0.
+
+## P1 progress (this session)
+
+Done:
+
+- Stood up the React component library inside the package: `src/` (TS), `tsup` build to `dist/index.js`
+  (ESM) + `dist/index.d.ts`, deps added (Radix primitives, CVA, clsx, tailwind-merge, cmdk, lucide).
+  Build is `build:tokens` + `build:lib`; `dist/` also keeps the hand-authored CSS so tsup runs with
+  `clean:false`.
+- Components, themed to spec (`reference/.../components.md`), every state, both themes:
+  primitives (Button, Input, Textarea, Label, Badge, Card, ThemeToggle), composite Radix (Select,
+  Combobox via cmdk, Dialog, Popover, Tooltip, Tabs, List, Metric + Sparkline), layout/nav
+  (AuroraBackground, Container, Grid, Masthead, Sidebar). Theme helpers in `src/lib/theme.ts`.
+- Styleguide converted from static HTML to a **Next.js App Router app** (`styleguide/`, npm workspace):
+  next/font (Bodoni + Inter), no-flash theme init, Tailwind v4 preset, renders every component in both
+  themes. Removed the old `styleguide/index.html` + `scripts/serve.mjs`.
+- VERIFIED via prod build + Playwright (both themes): library + styleguide build clean (type-check
+  passes); Tailwind utilities resolve (bg-primary, 0px corners, uppercase); Dialog opens with focus
+  trap + overlay; Combobox (cmdk) opens and filters; reduced-transparency a11y fallback fires. Only
+  console noise is the favicon 404.
+- README updated (Components section + consumer `@source` step); changeset queued (minor -> 0.2.0).
+
+Gotchas / decisions:
+
+- The root package is itself `@ash2k5/cinematic-ds`, NOT a workspace member, so a workspace can't take
+  it as a normal dependency (npm hit GitHub Packages -> 401). The styleguide instead imports the built
+  lib via a tsconfig `paths` alias to `../dist/index` + Next `experimental.externalDir: true`. Build
+  the lib before the styleguide.
+- esbuild drops the `"use client"` banner when bundling; `scripts/add-use-client.mjs` prepends it to
+  `dist/index.js` post-build (needed so consumer server components can import these client components).
+- `ListItemProps` must `Omit<..., "title">` (native `title` attr is `string`, the prop is `ReactNode`).
+- Tailwind v4 headless Chromium reports `prefers-reduced-transparency: reduce`, so glass renders as the
+  opaque `surface-container` fallback in QA screenshots (correct behavior; glass shows for normal users).
+- Audit: 4 advisories are all dev/build-tooling only (esbuild via tsup, postcss@8.4.31 via Next) — none
+  in the published runtime deps; not force-downgrading (fixes are tsup->6 / next->9).
 
 ## Notes / gotchas
 
