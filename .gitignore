@@ -4,6 +4,9 @@ node_modules/
 .env
 .env.*
 
+# Local program planning state (not published)
+.planning/
+
 # Styleguide (Next.js) build artifacts
 .next/
 out/
