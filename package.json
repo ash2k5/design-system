@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "Cinematic Editorial design system: tokens, theming, fonts, and React components.",
   "type": "module",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "sideEffects": [
     "**/*.css"
   ],
@@ -41,7 +41,7 @@
     "url": "git+https://github.com/ash2k5/design-system.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "peerDependencies": {
     "react": ">=18",

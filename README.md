@@ -7,6 +7,15 @@ glassmorphism, aurora-gradient + grain atmosphere (no photography).
 Canonical token values live in `tokens/tokens.mjs` and are derived from the reference spec in
 `~/repos/reference/Design system/`. Run `npm run build` to regenerate the `dist/` CSS after editing.
 
+## Install
+
+```bash
+npm install @ash2k5/cinematic-ds
+```
+
+Published to the public npm registry. Used by the [Book ML](https://github.com/ash2k5/book-ml-recommender)
+and [CampusPathFinder](https://github.com/ash2k5/UC_CampusPathFinder) frontends.
+
 ## What ships
 
 | File                      | Purpose                                                                                        |
