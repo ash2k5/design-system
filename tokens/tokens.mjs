@@ -1,4 +1,4 @@
-// Canonical token source for the Cinematic Editorial design system.
+// Canonical token source for the design system.
 // Single source of truth. Edit here, then run `npm run build` to regenerate
 // dist/tokens.css and dist/preset.css. Values come from the reference spec
 // (foundations/light.md, foundations/dark.md, backgrounds.md).

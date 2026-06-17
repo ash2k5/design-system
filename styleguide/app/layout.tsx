@@ -1,7 +1,7 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
 import { Bodoni_Moda, Inter } from "next/font/google";
-import { AuroraBackground } from "@ash2k5/cinematic-ds";
+import { AuroraBackground } from "@ash2k5/ui";
 import "./globals.css";
 
 const bodoni = Bodoni_Moda({
@@ -16,9 +16,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Cinematic Editorial — Styleguide",
+  title: "@ash2k5/ui - Styleguide",
   description:
-    "Component and token reference for @ash2k5/cinematic-ds, both themes.",
+    "Component and token reference for @ash2k5/ui, both themes.",
 };
 
 // No-flash theme init: set data-theme before paint from storage or system pref.

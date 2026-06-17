@@ -1,7 +1,7 @@
 import * as React from "react";
 import { cn } from "../lib/cn";
 
-// Centered editorial container with responsive side margins.
+// Centered container with responsive side margins.
 export const Container = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
