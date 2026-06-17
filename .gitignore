@@ -7,6 +7,10 @@ node_modules/
 # Local program planning state (not published)
 .planning/
 
+# Build output (regenerated on publish/CI)
+dist/
+*.tgz
+
 # Styleguide (Next.js) build artifacts
 .next/
 out/

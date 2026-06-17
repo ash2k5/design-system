@@ -51,7 +51,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@ash2k5/cinematic-ds";
+} from "@ash2k5/ui";
 
 const eyebrow =
   "font-sans uppercase font-semibold text-[length:var(--text-label-sm-size)] tracking-[var(--text-label-sm-tracking)] text-on-surface-variant";
@@ -118,7 +118,7 @@ export default function StyleguidePage() {
   return (
     <TooltipProvider delayDuration={150}>
       <Masthead>
-        <MastheadBrand>CINEMATIC</MastheadBrand>
+        <MastheadBrand>UI</MastheadBrand>
         <MastheadNav>
           <MastheadLink href="#components" active>
             Components
@@ -134,13 +134,13 @@ export default function StyleguidePage() {
       <main>
         <Container>
           <section className="py-16">
-            <p className={eyebrow}>Volume 02 — Components</p>
+            <p className={eyebrow}>Components</p>
             <h1 className="mt-2 font-display text-[length:var(--text-display-size)] leading-[var(--text-display-lh)] tracking-[var(--text-display-tracking)] text-on-surface">
-              Cinematic Editorial
+              @ash2k5/ui
             </h1>
             <p className="mt-4 max-w-[60ch] font-body text-[length:var(--text-body-lg-size)] leading-[var(--text-body-lg-lh)] text-on-surface-variant">
-              A Radix + CVA component library themed to the Cinematic Editorial
-              system. Every control carries hover, focus, disabled, and where
+              A Radix + CVA component library themed for light and dark.
+              Every control carries hover, focus, disabled, and where
               relevant loading and error states, in both the warm gallery-white
               and near-black themes.
             </p>
@@ -433,7 +433,7 @@ export default function StyleguidePage() {
               {TYPE_SCALE.map((t) => (
                 <div key={t.cls} className="flex items-baseline gap-6">
                   <span className={`${eyebrow} w-32 shrink-0`}>{t.label}</span>
-                  <span className={t.cls}>Cinematic</span>
+                  <span className={t.cls}>Typeface</span>
                 </div>
               ))}
             </div>
@@ -441,7 +441,7 @@ export default function StyleguidePage() {
 
           <footer className="border-t border-outline-variant py-10">
             <p className="font-body text-[length:var(--text-body-sm-size)] text-on-surface-variant">
-              @ash2k5/cinematic-ds — styleguide
+              @ash2k5/ui - styleguide
             </p>
           </footer>
         </Container>

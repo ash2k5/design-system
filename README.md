@@ -1,4 +1,4 @@
-# @ash2k5/cinematic-ds
+# @ash2k5/ui
 
 A small design system: tokens, theming, fonts, and React components. Warm gallery-white +
 near-black light/dark themes, Bodoni Moda paired with Inter, sharp-edged glass, and an
@@ -7,7 +7,7 @@ aurora-gradient + grain background. Used by my app frontends.
 ## Install
 
 ```bash
-npm install @ash2k5/cinematic-ds
+npm install @ash2k5/ui
 ```
 
 On the public npm registry.
@@ -33,16 +33,16 @@ In `app/globals.css`:
 
 ```css
 @import "tailwindcss";
-@import "@ash2k5/cinematic-ds/preset.css";
-@import "@ash2k5/cinematic-ds/recipes.css";
-@source "../node_modules/@ash2k5/cinematic-ds/dist";
+@import "@ash2k5/ui/preset.css";
+@import "@ash2k5/ui/recipes.css";
+@source "../node_modules/@ash2k5/ui/dist";
 ```
 
 Then `bg-surface text-on-surface font-display` utilities resolve to the tokens and swap with
 `[data-theme]`. The `@source` line lets Tailwind generate the utilities the components use.
 
 ```tsx
-import { Button, Card, ThemeToggle } from "@ash2k5/cinematic-ds";
+import { Button, Card, ThemeToggle } from "@ash2k5/ui";
 ```
 
 Each app keeps a small `theme.css` that overrides only the tokens it wants to diverge on
