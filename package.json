@@ -1,7 +1,7 @@
 {
   "name": "@ash2k5/cinematic-ds",
   "version": "0.2.0",
-  "description": "Cinematic Editorial design system: tokens, theming, fonts, and React components.",
+  "description": "design system: tokens, theming, fonts, and react components",
   "type": "module",
   "license": "MIT",
   "sideEffects": [

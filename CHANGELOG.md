@@ -1,24 +1,15 @@
-# Changelog
+# changelog
 
-All notable changes to `@ash2k5/cinematic-ds` are documented here. Format follows
-[Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow
-[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## 0.2.0 (2026-06-14)
 
-## [0.2.0] - 2026-06-14
+- added the react component library (radix + cva, themed in both light and dark): button,
+  input, textarea, label, badge, card, themetoggle; select, combobox, dialog, popover,
+  tooltip, tabs, list, metric (+ sparkline); aurorabackground, container, grid, masthead,
+  sidebar; and theme helpers. ships as esm + types with a `"use client"` boundary.
+- added a styleguide app that renders every component in both themes.
 
-### Added
+## 0.1.0 (2026-06-14)
 
-- React component library. Radix + CVA components themed to Cinematic Editorial, every state in both
-  themes: Button, Input, Textarea, Label, Badge, Card, ThemeToggle; Select, Combobox, Dialog, Popover,
-  Tooltip, Tabs, List, Metric (+ Sparkline); AuroraBackground, Container, Grid, Masthead, Sidebar; and
-  theme helpers (useTheme, getTheme, setTheme, themeInitScript). Ships as ESM + types with a
-  `"use client"` boundary.
-- Next.js styleguide app rendering every component in both themes.
-
-## [0.1.0] - 2026-06-14
-
-### Added
-
-- Design system foundation: canonical token source generating CSS variables (light/dark) and a
-  Tailwind v4 preset, base + override theming, Bodoni Moda + Inter fonts, layout/background recipes
-  (aurora gradient, grain, glass, grid, a11y fallbacks), and a styleguide.
+- first release: a token source generating css variables (light/dark) and a tailwind v4
+  preset, base + override theming, bodoni moda + inter fonts, and layout/background
+  recipes (aurora gradient, grain, glass, grid, a11y fallbacks).
